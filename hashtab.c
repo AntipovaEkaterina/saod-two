@@ -10,14 +10,14 @@ unsigned int hashtab_hash(char *key) {
 	unsigned int h = 0;
 	char *p;
 	for(p = key; *p != '\0'; p++) {
-	   h = h * HASHTAB_MUL + (unsigned int)*p;
+	   h = h * HASHTAB_MUL + (int)p;
 	}
 	return h % HASHTAB_SIZE;
 }
 
 unsigned add_hash(char *key, int len) {
 	unsigned h = 0;
-	unsigned char *p = key;
+	char *p = key;
 	int i;
 	for(i = 0; i < len; i++)
 		h += p[i];
